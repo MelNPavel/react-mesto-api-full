@@ -8,14 +8,9 @@ const checkResponse = (res) =>
 
 export const auth = (email, password) => {
   return fetch(`${baseUrl}/signup`, {
-<<<<<<< HEAD
     credentials: "include",
     method: 'POST',
     headers: {      
-=======
-    method: 'POST',
-    headers: {
->>>>>>> refs/remotes/origin/main
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
@@ -26,10 +21,7 @@ export const auth = (email, password) => {
 
 export const authorize = (email, password) => {
   return fetch(`${baseUrl}/signin`, {
-<<<<<<< HEAD
     credentials: "include",
-=======
->>>>>>> refs/remotes/origin/main
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -40,7 +32,6 @@ export const authorize = (email, password) => {
   .then(res => checkResponse(res))
 };
 
-<<<<<<< HEAD
 export const getContent = () => {
   return fetch(`${baseUrl}/users/me`, {
     credentials: "include",
@@ -62,15 +53,3 @@ export const logout = () => {
   })
   .then(res => checkResponse(res));
 };
-=======
-export const getContent = (token) => {
-  return fetch(`${baseUrl}/users/me`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      "Authorization" : `Bearer ${token}`
-    }
-  })
-  .then(res => checkResponse(res))
-};
->>>>>>> refs/remotes/origin/main

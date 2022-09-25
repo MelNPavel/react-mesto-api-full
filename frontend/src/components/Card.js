@@ -17,11 +17,7 @@ function Card (props) {
     function handleLikeClick (){
         props.onCardLike(props)};
     
-<<<<<<< HEAD
     const isLiked = props.likeUser.some(i => i === currentUser._id);
-=======
-    const isLiked = props.likeUser.some(i => i._id === currentUser._id);
->>>>>>> refs/remotes/origin/main
     const cardLikeButtonClassName = (
         `element__like ${isLiked ? 'element__like_black' : ''}`
     ); 
