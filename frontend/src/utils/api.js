@@ -8,6 +8,7 @@ class Api{
 
 getUserInfo() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/users/me`, {
         credentials: "include",    
         headers: this.headers
@@ -15,11 +16,21 @@ getUserInfo() {
     return fetch (`${this.url}users/me`, {
             headers: this.headers
 >>>>>>> refs/remotes/origin/main
+=======
+    return fetch (`${this.url}users/me`, {
+            headers: this.headers
+=======
+    return fetch (`${this.url}/users/me`, {
+        credentials: "include",    
+        headers: this.headers
+>>>>>>> main
+>>>>>>> develop
     })
     .then(this._checkResponse)
 };
 
 getTasksCards() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return fetch (`${this.url}/cards`, {
         credentials: "include",    
@@ -28,6 +39,15 @@ getTasksCards() {
     return fetch (`${this.url}cards`, {
             headers: this.headers
 >>>>>>> refs/remotes/origin/main
+=======
+    return fetch (`${this.url}cards`, {
+            headers: this.headers
+=======
+    return fetch (`${this.url}/cards`, {
+        credentials: "include",    
+        headers: this.headers
+>>>>>>> main
+>>>>>>> develop
     })
     .then(this._checkResponse)
 };
@@ -35,17 +55,30 @@ getTasksCards() {
 addUser(inputsUserHandle) {
     const body = {about: inputsUserHandle.about, name: inputsUserHandle.name}
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/users/me`, {
         credentials: "include",    
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify(body)
 =======
+=======
+>>>>>>> develop
     return fetch (`${this.url}users/me`, {
             method: 'PATCH',
             headers: this.headers,
             body: JSON.stringify(body)
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/main
+=======
+=======
+    return fetch (`${this.url}/users/me`, {
+        credentials: "include",    
+        method: 'PATCH',
+        headers: this.headers,
+        body: JSON.stringify(body)
+>>>>>>> main
+>>>>>>> develop
             }
     )
     .then(this._checkResponse)
@@ -54,6 +87,7 @@ addUser(inputsUserHandle) {
 addCard(inputsValue) {
     const body = {name: inputsValue.name, link: inputsValue.link}
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/cards`, {
         credentials: "include",
         method: 'POST',
@@ -61,23 +95,44 @@ addCard(inputsValue) {
         body: JSON.stringify(body)
         }
 =======
+=======
+>>>>>>> develop
     return fetch (`${this.url}cards`, {
             method: 'POST',
             headers: this.headers,
             body: JSON.stringify(body)
             }
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/main
+=======
+=======
+    return fetch (`${this.url}/cards`, {
+        credentials: "include",
+        method: 'POST',
+        headers: this.headers,
+        body: JSON.stringify(body)
+        }
+>>>>>>> main
+>>>>>>> develop
     )
     .then(this._checkResponse)
 };
 
 deleteCard(cardId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/cards/${cardId}`,{
         credentials: "include",
 =======
     return fetch (`${this.url}cards/${cardId}`,{
 >>>>>>> refs/remotes/origin/main
+=======
+    return fetch (`${this.url}cards/${cardId}`,{
+=======
+    return fetch (`${this.url}/cards/${cardId}`,{
+        credentials: "include",
+>>>>>>> main
+>>>>>>> develop
         method: 'DELETE',
         headers: this.headers,
     })
@@ -86,11 +141,19 @@ deleteCard(cardId) {
 
 likePut(cardId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/cards/${cardId}/likes`,{
         credentials: "include",
 =======
     return fetch (`${this.url}cards/${cardId}/likes`,{
 >>>>>>> refs/remotes/origin/main
+=======
+    return fetch (`${this.url}cards/${cardId}/likes`,{
+=======
+    return fetch (`${this.url}/cards/${cardId}/likes`,{
+        credentials: "include",
+>>>>>>> main
+>>>>>>> develop
         method: 'PUT',
         headers: this.headers,
     })
@@ -99,11 +162,19 @@ likePut(cardId) {
 
 likeUnPut(cardId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/cards/${cardId}/likes`,{
         credentials: "include",
 =======
     return fetch (`${this.url}cards/${cardId}/likes`,{
 >>>>>>> refs/remotes/origin/main
+=======
+    return fetch (`${this.url}cards/${cardId}/likes`,{
+=======
+    return fetch (`${this.url}/cards/${cardId}/likes`,{
+        credentials: "include",
+>>>>>>> main
+>>>>>>> develop
         method: 'DELETE',
         headers: this.headers,
     })
@@ -112,11 +183,19 @@ likeUnPut(cardId) {
 
 avatar(data) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return fetch (`${this.url}/users/me/avatar`, {
         credentials: "include",
 =======
     return fetch (`${this.url}users/me/avatar`, {
 >>>>>>> refs/remotes/origin/main
+=======
+    return fetch (`${this.url}users/me/avatar`, {
+=======
+    return fetch (`${this.url}/users/me/avatar`, {
+        credentials: "include",
+>>>>>>> main
+>>>>>>> develop
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify(data)
