@@ -7,11 +7,19 @@ const config = {
     errorClass: 'popup__error_visible',
 };
 
+<<<<<<< HEAD
 const baseUrl = "https://localhost:4000";
 const myJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MTUyMTYzOTBhNDAwMTQ2OTYxMDkiLCJpYXQiOjE2NjAxNjM1MDN9.nMr1EsDiPO1LmmC1oksqDJ3elyXwpbkbU7NEKQBeuH4";
 
 const configApi = {
   baseUrl: 'https://localhost:4000',
+=======
+const baseUrl = "http://localhost:4000";
+const myJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MTUyMTYzOTBhNDAwMTQ2OTYxMDkiLCJpYXQiOjE2NjAxNjM1MDN9.nMr1EsDiPO1LmmC1oksqDJ3elyXwpbkbU7NEKQBeuH4";
+
+const configApi = {
+  baseUrl: 'http://localhost:4000',
+>>>>>>> main
   headers: {
     authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78',
     'Content-Type': 'application/json'

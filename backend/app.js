@@ -4,6 +4,7 @@ require('dotenv').config();
 // const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors, celebrate, Joi } = require('celebrate');
+const cors = require('cors');
 
 const { PORT = 4000 } = process.env;
 const app = express();
@@ -19,6 +20,13 @@ app.use(express.json());
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }),
+);
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({

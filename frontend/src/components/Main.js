@@ -57,7 +57,11 @@ function Main({onAddPlace, onEditProfile, onEditAvatar, cardClick, cards, onCard
                             link={item.link}
                             likeUser={item.likes}
                             like={item.likes.length}
+<<<<<<< HEAD
                             ownerId={item.owner._id}
+=======
+                            ownerId={item.owner}
+>>>>>>> main
                             onCardClick={getCardsClick}
                             onCardLike={onCardLike}
                             onCardDelete={onCardDelete}

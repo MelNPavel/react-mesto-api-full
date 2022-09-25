@@ -124,13 +124,16 @@ const login = async (req, res, next) => {
     if (!checkUser) {
       return next(new UnauthorizedError('Неправильный email или пароль'));
     }
+
     const passwordVal = await bcrypt.compare(password, checkUser.password);
     if (!passwordVal) {
       return next(new UnauthorizedError('Неправильный email или пароль'));
     }
+
     const token = jwt.sign({
       _id: checkUser.id,
     }, 'SECRET');
+
     res.cookie('jwt', token, {
       maxAge: 3600000,
       httpOnly: true,
@@ -141,8 +144,6 @@ const login = async (req, res, next) => {
     return next(e);
   }
 };
-
-// process.env['JWT.SECRET'])
 
 module.exports = {
   getUsers,

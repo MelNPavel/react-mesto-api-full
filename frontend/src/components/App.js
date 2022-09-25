@@ -15,7 +15,11 @@ import { Login } from "./Login.js";
 import { Register } from "./Register.js";
 import ProtectedRoute from "./ProtectedRoute.js";
 import { InfoTooltip } from "./InfoTooltip.js";
+<<<<<<< HEAD
 import { auth, authorize, getContent } from "../utils/Auth.js";
+=======
+import { auth, authorize, getContent, logout } from "../utils/Auth.js";
+>>>>>>> main
 
 function App() {
    
@@ -57,7 +61,10 @@ function App() {
 
     //Загрузка первоначальных данных пользователя
     useEffect(() => {
+<<<<<<< HEAD
         if (loggedIn){
+=======
+>>>>>>> main
         api.getUserInfo()
             .then((res) => {
                 setcurrentUser(res)
@@ -65,7 +72,11 @@ function App() {
             .catch((err) => {
                 console.log ('Ошибка' + err);
               })
+<<<<<<< HEAD
 }}, [loggedIn])
+=======
+}, [loggedIn])
+>>>>>>> main
 
     //Загрузка карточек первоначальная
     useEffect(() => {
@@ -105,21 +116,36 @@ function App() {
 
     //Лайки
     function handleCardLike(card) {
+<<<<<<< HEAD
         const isLiked = card.likeUser.some(i => i.cardId === currentUser._id);
         api.likePut(card.cardId, !isLiked)
+=======
+        const isLiked = card.likeUser.some(i => i === currentUser._id);
+        if (!isLiked){
+        api.likePut(card.cardId)
+>>>>>>> main
             .then((newCard) => {
                 setCards((state) => state.map(
                     (c) => c._id === card.cardId ? newCard : c))})
             .catch((err) => {
                 console.log ('Ошибка' + err);
+<<<<<<< HEAD
             })
         api.likeUnPut(card.cardId, isLiked)
+=======
+            })} else {
+        api.likeUnPut(card.cardId)
+>>>>>>> main
             .then((newCard) => {
                 setCards((state) => state.map(
                 (c) => c._id === card.cardId ? newCard : c))})
             .catch((err) => {
                 console.log ('Ошибка' + err);
+<<<<<<< HEAD
              })
+=======
+             })}
+>>>>>>> main
     } 
 
     //удаление карточки
@@ -147,6 +173,7 @@ function App() {
     
     //Если есть токен заходи
     const tokenCheck = () => {
+<<<<<<< HEAD
         const jwt = localStorage.getItem('jwt');
         if (!jwt) {
             return;
@@ -166,6 +193,17 @@ function App() {
     //     }
     //  }, [loggedIn]);
 
+=======
+        getContent()
+            .then((res) => {
+                setLoggedIn(true);
+                setEmail(res.email);
+                history.push ('/');
+            })
+            .catch((err) => console.log(err));
+    }
+
+>>>>>>> main
     //Регистрация
     const handleRegister = (data) => {
         auth(data.email, data.password)
@@ -190,6 +228,7 @@ function App() {
     //Вход через логин
     const handleLogin = (data) => {
         authorize(data.email, data.password)
+<<<<<<< HEAD
             .then((res) => {
                 if (res.token) {
                 setLoggedIn(true);
@@ -201,14 +240,37 @@ function App() {
                 console.log(err)
             setInfoTooltip(true);
             setRegistration(false);
+=======
+            .then((res) => {              
+                setLoggedIn(true);              
+                setEmail(data.email);
+                history.push ('/');
+    })
+            .catch((err) => {
+                setInfoTooltip(true);
+                setRegistration(false);
+                console.log(err)
+>>>>>>> main
         });
     }
 
     //Выход
     const onlogOut = () => {
+<<<<<<< HEAD
         setLoggedIn(false);
         localStorage.removeItem('jwt');
         setEmail("");
+=======
+        logout()
+            .then(() =>  {            
+                setLoggedIn(false);
+                setEmail("");
+                history.push ('/');                
+            })             
+            .catch((err) => {
+                console.log(err)
+            })
+>>>>>>> main
     }
 
     useEffect(()=>{
