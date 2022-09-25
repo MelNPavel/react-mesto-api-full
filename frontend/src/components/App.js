@@ -15,7 +15,11 @@ import { Login } from "./Login.js";
 import { Register } from "./Register.js";
 import ProtectedRoute from "./ProtectedRoute.js";
 import { InfoTooltip } from "./InfoTooltip.js";
+<<<<<<< HEAD
 import { auth, authorize, getContent, logout } from "../utils/Auth.js";
+=======
+import { auth, authorize, getContent } from "../utils/Auth.js";
+>>>>>>> refs/remotes/origin/main
 
 function App() {
    
@@ -57,6 +61,10 @@ function App() {
 
     //Загрузка первоначальных данных пользователя
     useEffect(() => {
+<<<<<<< HEAD
+=======
+        if (loggedIn){
+>>>>>>> refs/remotes/origin/main
         api.getUserInfo()
             .then((res) => {
                 setcurrentUser(res)
@@ -64,7 +72,11 @@ function App() {
             .catch((err) => {
                 console.log ('Ошибка' + err);
               })
+<<<<<<< HEAD
 }, [loggedIn])
+=======
+}}, [loggedIn])
+>>>>>>> refs/remotes/origin/main
 
     //Загрузка карточек первоначальная
     useEffect(() => {
@@ -104,22 +116,36 @@ function App() {
 
     //Лайки
     function handleCardLike(card) {
+<<<<<<< HEAD
         const isLiked = card.likeUser.some(i => i === currentUser._id);
         if (!isLiked){
         api.likePut(card.cardId)
+=======
+        const isLiked = card.likeUser.some(i => i.cardId === currentUser._id);
+        api.likePut(card.cardId, !isLiked)
+>>>>>>> refs/remotes/origin/main
             .then((newCard) => {
                 setCards((state) => state.map(
                     (c) => c._id === card.cardId ? newCard : c))})
             .catch((err) => {
                 console.log ('Ошибка' + err);
+<<<<<<< HEAD
             })} else {
         api.likeUnPut(card.cardId)
+=======
+            })
+        api.likeUnPut(card.cardId, isLiked)
+>>>>>>> refs/remotes/origin/main
             .then((newCard) => {
                 setCards((state) => state.map(
                 (c) => c._id === card.cardId ? newCard : c))})
             .catch((err) => {
                 console.log ('Ошибка' + err);
+<<<<<<< HEAD
              })}
+=======
+             })
+>>>>>>> refs/remotes/origin/main
     } 
 
     //удаление карточки
@@ -147,6 +173,7 @@ function App() {
     
     //Если есть токен заходи
     const tokenCheck = () => {
+<<<<<<< HEAD
         getContent()
             .then((res) => {
                 setLoggedIn(true);
@@ -156,6 +183,27 @@ function App() {
             .catch((err) => console.log(err));
     }
 
+=======
+        const jwt = localStorage.getItem('jwt');
+        if (!jwt) {
+            return;
+        }
+            getContent(jwt)
+                .then((res) => {
+                    setLoggedIn(true);
+                    setEmail(res.data.email);
+                    history.push ('/');
+                })
+                .catch((err) => console.log(err));
+    }
+
+    // useEffect((loggedIn, history) => {
+    //     if (loggedIn){
+    //         history.push ('/')
+    //     }
+    //  }, [loggedIn]);
+
+>>>>>>> refs/remotes/origin/main
     //Регистрация
     const handleRegister = (data) => {
         auth(data.email, data.password)
@@ -180,6 +228,7 @@ function App() {
     //Вход через логин
     const handleLogin = (data) => {
         authorize(data.email, data.password)
+<<<<<<< HEAD
             .then((res) => {              
                 setLoggedIn(true);              
                 setEmail(data.email);
@@ -189,11 +238,25 @@ function App() {
                 setInfoTooltip(true);
                 setRegistration(false);
                 console.log(err)
+=======
+            .then((res) => {
+                if (res.token) {
+                setLoggedIn(true);
+                localStorage.setItem('jwt', res.token);
+                setEmail(data.email);
+                history.push ('/');
+    }})
+            .catch((err) => {
+                console.log(err)
+            setInfoTooltip(true);
+            setRegistration(false);
+>>>>>>> refs/remotes/origin/main
         });
     }
 
     //Выход
     const onlogOut = () => {
+<<<<<<< HEAD
         logout()
             .then(() =>  {            
                 setLoggedIn(false);
@@ -203,6 +266,11 @@ function App() {
             .catch((err) => {
                 console.log(err)
             })
+=======
+        setLoggedIn(false);
+        localStorage.removeItem('jwt');
+        setEmail("");
+>>>>>>> refs/remotes/origin/main
     }
 
     useEffect(()=>{

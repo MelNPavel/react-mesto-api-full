@@ -36,8 +36,11 @@ usersRouters.patch('/users/me/avatar', celebrate({
   }),
 }), avatarUpdate);
 
+<<<<<<< HEAD
 usersRouters.post('/onlogout', (req, res) => {
   res.clearCookie('jwt').send({ message: 'Exit' });
 });
 
+=======
+>>>>>>> refs/remotes/origin/main
 module.exports = { usersRouters };

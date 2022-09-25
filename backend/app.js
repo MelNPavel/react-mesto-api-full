@@ -4,7 +4,10 @@ require('dotenv').config();
 // const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors, celebrate, Joi } = require('celebrate');
+<<<<<<< HEAD
 const cors = require('cors');
+=======
+>>>>>>> refs/remotes/origin/main
 
 const { PORT = 4000 } = process.env;
 const app = express();
@@ -21,6 +24,7 @@ app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+<<<<<<< HEAD
 app.use(
   cors({
     origin: 'http://localhost:3000',
@@ -28,6 +32,8 @@ app.use(
   }),
 );
 
+=======
+>>>>>>> refs/remotes/origin/main
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),

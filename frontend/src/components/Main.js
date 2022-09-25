@@ -57,7 +57,11 @@ function Main({onAddPlace, onEditProfile, onEditAvatar, cardClick, cards, onCard
                             link={item.link}
                             likeUser={item.likes}
                             like={item.likes.length}
+<<<<<<< HEAD
                             ownerId={item.owner}
+=======
+                            ownerId={item.owner._id}
+>>>>>>> refs/remotes/origin/main
                             onCardClick={getCardsClick}
                             onCardLike={onCardLike}
                             onCardDelete={onCardDelete}
