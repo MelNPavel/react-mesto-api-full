@@ -1,0 +1,13 @@
+.auth__check-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 215px;
+}
+
+@media screen and (max-width: 545px) {
+    .auth__check-area {
+       margin-top: 173px;
+    }
+}
