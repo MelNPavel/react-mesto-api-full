@@ -14,6 +14,7 @@ const { login, userCreate } = require('./controllers/users');
 const { usersRouters } = require('./routes/users');
 const { cardsRouters } = require('./routes/cards');
 const NotFoudError = require('./errors/NotFoudError');
+const { requestLogger, errorLogger } = require('./midlewares/logger');
 
 app.use(express.json());
 
@@ -27,6 +28,8 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use(requestLogger);
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -51,6 +54,8 @@ app.use(auth);
 app.use(usersRouters);
 
 app.use(cardsRouters);
+
+app.use(errorLogger);
 
 app.use('*', (req, res, next) => {
   next(new NotFoudError('Такой страницы нет'));
