@@ -29,7 +29,7 @@
       "last 1 safari version"
     ]
   },
-  "main": "build/index.js",
+  "main": "build/index.html",
   "author": "",
   "license": "ISC",
   "description": ""
