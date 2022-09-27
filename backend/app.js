@@ -40,14 +40,10 @@ app.use(requestLogger);
 
 app.use(
   cors({
-    // eslint-disable-next-line quote-props
-    'origin': 'https://mestofullgha.nomorepartiesxyz.ru',
-    // eslint-disable-next-line quote-props
-    'credentials': true,
-    // eslint-disable-next-line quote-props
-    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    // eslint-disable-next-line quote-props
-    'allowedHeaders': 'Origin, X-Requested-With, Content-Type, Accept',
+    origin: 'https://mestofullgha.nomorepartiesxyz.ru',
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
   }),
 );
 
