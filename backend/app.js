@@ -22,13 +22,6 @@ app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: 'https://mestofullgha.nomorepartiesxyz.ru',
-    credentials: true,
-  }),
-);
-
 // const allowedCors = [
 //   'https://mestofullgha.nomorepartiesxyz.ru',
 //   'http://mestofullgha.nomorepartiesxyz.ru',
@@ -44,6 +37,13 @@ app.use(
 // });
 
 app.use(requestLogger);
+
+app.use(
+  cors({
+    origin: 'https://mestofullgha.nomorepartiesxyz.ru',
+    credentials: true,
+  }),
+);
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
