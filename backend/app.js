@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: 'https://mestofullgha.nomorepartiesxyz.ru',
+    origin: 'localhost:3000',
     credentials: true,
   }),
 );
