@@ -42,6 +42,8 @@ app.use(
   cors({
     origin: 'https://mestofullgha.nomorepartiesxyz.ru',
     credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    headers: 'Origin, X-Requested-With, Content-Type, Accept',
   }),
 );
 
