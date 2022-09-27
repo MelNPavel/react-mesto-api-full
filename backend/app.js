@@ -4,7 +4,7 @@ require('dotenv').config();
 // const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors, celebrate, Joi } = require('celebrate');
-// const cors = require('cors');
+const cors = require('cors');
 
 const { PORT = 4000 } = process.env;
 const app = express();
@@ -22,26 +22,26 @@ app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// app.use(
-//   cors({
-//     origin: 'localhost:3000',
-//     credentials: true,
-//   }),
-// );
+app.use(
+  cors({
+    origin: 'localhost:3000',
+    credentials: true,
+  }),
+);
 
-const allowedCors = [
-  'https://mestofullgha.nomorepartiesxyz.ru',
-  'http://mestofullgha.nomorepartiesxyz.ru',
-  'localhost:3000',
-];
+// const allowedCors = [
+//   'https://mestofullgha.nomorepartiesxyz.ru',
+//   'http://mestofullgha.nomorepartiesxyz.ru',
+//   'localhost:3000',
+// ];
 
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   const { origin } = req.headers;
+//   if (allowedCors.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
+//   next();
+// });
 
 app.use(requestLogger);
 
