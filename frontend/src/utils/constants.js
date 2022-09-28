@@ -12,8 +12,7 @@ const myJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MTUyMTYzOTBh
 
 const configApi = {
   baseUrl: "https://api.mestofullgha.nomorepartiesxyz.ru",
-  headers: {
-    'origin': 'https://mestofullgha.nomorepartiesxyz.ru',
+  headers: {    
     authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78',
     'Content-Type': 'application/json'
   },

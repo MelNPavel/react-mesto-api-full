@@ -11,7 +11,7 @@ export const auth = (email, password) => {
     credentials: 'include',
     method: 'POST',
     headers: {      
-      'Accept': 'application/json',
+      // 'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({email, password})
@@ -23,9 +23,8 @@ export const authorize = (email, password) => {
   return fetch(`${baseUrl}/signin`, {
     credentials: 'include',
     method: 'POST',
-    headers: {
-      'origin': 'https://mestofullgha.nomorepartiesxyz.ru',
-      'Accept': 'application/json',
+    headers: {      
+      // 'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({email, password})
@@ -37,9 +36,9 @@ export const getContent = () => {
   return fetch(`${baseUrl}/users/me`, {
     credentials: 'include',
     method: 'GET',
-    headers: {
-      'origin': 'https://mestofullgha.nomorepartiesxyz.ru',
-      'Accept': 'application/json',
+    headers: {      
+      // 'Accept': 'application/json',
+      'Content-Type': 'application/json'
     }
   })
   .then(res => checkResponse(res))
@@ -47,11 +46,11 @@ export const getContent = () => {
 
 export const logout = () => {
   return fetch(`${baseUrl}/onlogout`, {
+    credentials: 'include',
       method: 'POST',
       headers: {        
         'Content-Type': 'application/json'
       },
-      credentials: 'include',
   })
   .then(res => checkResponse(res));
 };
