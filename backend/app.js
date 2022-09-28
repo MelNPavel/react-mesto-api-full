@@ -4,7 +4,7 @@ require('dotenv').config();
 // const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors, celebrate, Joi } = require('celebrate');
-const cors = require('cors');
+// const cors = require('cors');
 
 const { PORT = 4000 } = process.env;
 const app = express();
@@ -24,43 +24,44 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
-// const allowedCors = [
-//   'https://mestofullgha.nomorepartiesxyz.ru',
-//   'https://mestofullgha.nomorepartiesxyz.ru',
-//   'https://localhost:3000',
-// ];
+const allowedCors = [
+  'https://mestofullgha.nomorepartiesxyz.ru',
+  'https://mestofullgha.nomorepartiesxyz.ru',
+  'https://localhost:3000',
+];
 
-// app.use((req, res, next) => {
-//   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
-//   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-//   // eslint-disable-next-line no-sequences
-//   const requestHeaders = req.headers['access-control-request-headers'];
-//   const { origin } = req.headers;
-//   if (allowedCors.includes(origin)) {
-//     res.header('Access-Control-Allow-Origin', origin);
-//     return res.end();
-//   }
-//   if (method === 'OPTIONS') {
-//     res.header('Access-Control-Allow-Origin', origin);
-//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-//     res.header('Access-Control-Allow-Headers', requestHeaders);
-//     return res.end();
-//   }
-//   return next();
-// });
+app.use((req, res, next) => {
+  const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+  // eslint-disable-next-line no-sequences
+  const requestHeaders = req.headers['access-control-request-headers'];
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', true);
+    return res.end();
+  }
+  if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+    return res.end();
+  }
+  return next();
+});
 
-app.use(cors(
-  {
-    // eslint-disable-next-line quotes, quote-props
-    "origin": "https://mestofullgha.nomorepartiesxyz.ru/",
-    // eslint-disable-next-line quote-props, quotes
-    "credentials": true,
-    // eslint-disable-next-line quotes, quote-props
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    // eslint-disable-next-line quotes, quote-props
-    "allowedHeaders": "access-control-request-headers",
-  },
-));
+// app.use(cors(
+//   {
+//     // eslint-disable-next-line quotes, quote-props
+//     "origin": "https://mestofullgha.nomorepartiesxyz.ru/",
+//     // eslint-disable-next-line quote-props, quotes
+//     "credentials": true,
+//     // eslint-disable-next-line quotes, quote-props
+//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     // eslint-disable-next-line quotes, quote-props
+//     "allowedHeaders": "access-control-request-headers",
+//   },
+// ));
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
