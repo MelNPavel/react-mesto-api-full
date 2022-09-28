@@ -24,6 +24,7 @@ export const authorize = (email, password) => {
     credentials: 'include',
     method: 'POST',
     headers: {
+      'origin': 'https://mestofullgha.nomorepartiesxyz.ru',
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
