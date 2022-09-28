@@ -26,8 +26,8 @@ app.use(requestLogger);
 
 const allowedCors = [
   'https://mestofullgha.nomorepartiesxyz.ru',
-  'https://mestofullgha.nomorepartiesxyz.ru',
-  'https://localhost:3000',
+  'http://mestofullgha.nomorepartiesxyz.ru',
+  'http://localhost:3000',
 ];
 
 app.use((req, res, next) => {
