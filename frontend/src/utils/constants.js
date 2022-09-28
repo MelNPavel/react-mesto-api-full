@@ -11,7 +11,7 @@ const baseUrl = 'https://api.mestofullgha.nomorepartiesxyz.ru';
 const myJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MTUyMTYzOTBhNDAwMTQ2OTYxMDkiLCJpYXQiOjE2NjAxNjM1MDN9.nMr1EsDiPO1LmmC1oksqDJ3elyXwpbkbU7NEKQBeuH4";
 
 const configApi = {
-  baseUrl: 'api.mestofullgha.nomorepartiesxyz.ru',
+  baseUrl: 'https://api.mestofullgha.nomorepartiesxyz.ru',
   headers: {
     authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78',
     'Content-Type': 'application/json'
