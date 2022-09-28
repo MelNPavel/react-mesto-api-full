@@ -38,6 +38,7 @@ export const getContent = () => {
     credentials: 'include',
     method: 'GET',
     headers: {
+      'origin': 'https://mestofullgha.nomorepartiesxyz.ru',
       'Accept': 'application/json',
     }
   })
