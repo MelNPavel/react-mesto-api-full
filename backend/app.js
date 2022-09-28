@@ -51,13 +51,14 @@ app.use(requestLogger);
 
 app.use(cors(
   {
-    // eslint-disable-next-line quotes
-    origin: "https://mestofullgha.nomorepartiesxyz.ru/",
-    credentials: true,
-    // eslint-disable-next-line quotes
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    // eslint-disable-next-line quotes
-    allowedHeaders: "access-control-request-headers",
+    // eslint-disable-next-line quotes, quote-props
+    "origin": "https://mestofullgha.nomorepartiesxyz.ru/",
+    // eslint-disable-next-line quote-props, quotes
+    "credentials": true,
+    // eslint-disable-next-line quotes, quote-props
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // eslint-disable-next-line quotes, quote-props
+    "allowedHeaders": "access-control-request-headers",
   },
 ));
 
