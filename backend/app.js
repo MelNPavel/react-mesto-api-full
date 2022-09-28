@@ -40,7 +40,7 @@ app.use(requestLogger);
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://localhost:3000',
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
     credentials: true,
