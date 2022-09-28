@@ -26,14 +26,15 @@ app.use(requestLogger);
 
 const allowedCors = [
   'https://mestofullgha.nomorepartiesxyz.ru',
-  'http://mestofullgha.nomorepartiesxyz.ru',
-  'localhost:3000',
+  'https://mestofullgha.nomorepartiesxyz.ru',
+  'https://localhost:3000',
 ];
 
 app.use((req, res, next) => {
   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  const requestHeaders = req.headers['access-control-request-headers'];
+  // eslint-disable-next-line no-sequences
+  const requestHeaders = req.headers['access-control-request-headers', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept'];
   const { origin } = req.headers;
 
   if (method === 'OPTIONS') {
