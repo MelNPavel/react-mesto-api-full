@@ -51,15 +51,13 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
-app.use(
-  cors(cors()),
-  //   {
-  //   origin: 'https://localhost:3000',
-  //   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  //   allowedHeaders: 'access-control-request-headers',
-  //   credentials: true,
-  // }
-);
+app.use(cors());
+//   {
+//   origin: 'https://localhost:3000',
+//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+//   allowedHeaders: 'access-control-request-headers',
+//   credentials: true,
+// }
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
