@@ -55,7 +55,7 @@ app.use(cors(
   {
     origin: 'https://mestofullgha.nomorepartiesxyz.ru/',
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
+    allowedHeaders: 'access-control-request-headers, Content-Type, Authorization',
     credentials: true,
   },
 ));
