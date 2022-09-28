@@ -8,7 +8,7 @@ class Api{
 
 getUserInfo() {
     return fetch (`${this.url}/users/me`, {
-        credentials: "include",    
+        credentials: 'include',    
         headers: this.headers
     })
     .then(this._checkResponse)
@@ -16,7 +16,7 @@ getUserInfo() {
 
 getTasksCards() {
     return fetch (`${this.url}/cards`, {
-        credentials: "include",    
+        credentials: 'include',    
         headers: this.headers
     })
     .then(this._checkResponse)
@@ -25,7 +25,7 @@ getTasksCards() {
 addUser(inputsUserHandle) {
     const body = {about: inputsUserHandle.about, name: inputsUserHandle.name}
     return fetch (`${this.url}/users/me`, {
-        credentials: "include",    
+        credentials: 'include',    
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify(body)
@@ -37,7 +37,7 @@ addUser(inputsUserHandle) {
 addCard(inputsValue) {
     const body = {name: inputsValue.name, link: inputsValue.link}
     return fetch (`${this.url}/cards`, {
-        credentials: "include",
+        credentials: 'include',
         method: 'POST',
         headers: this.headers,
         body: JSON.stringify(body)
@@ -48,7 +48,7 @@ addCard(inputsValue) {
 
 deleteCard(cardId) {
     return fetch (`${this.url}/cards/${cardId}`,{
-        credentials: "include",
+        credentials: 'include',
         method: 'DELETE',
         headers: this.headers,
     })
@@ -57,7 +57,7 @@ deleteCard(cardId) {
 
 likePut(cardId) {
     return fetch (`${this.url}/cards/${cardId}/likes`,{
-        credentials: "include",
+        credentials: 'include',
         method: 'PUT',
         headers: this.headers,
     })
@@ -66,7 +66,7 @@ likePut(cardId) {
 
 likeUnPut(cardId) {
     return fetch (`${this.url}/cards/${cardId}/likes`,{
-        credentials: "include",
+        credentials: 'include',
         method: 'DELETE',
         headers: this.headers,
     })
@@ -75,7 +75,7 @@ likeUnPut(cardId) {
 
 avatar(data) {
     return fetch (`${this.url}/users/me/avatar`, {
-        credentials: "include",
+        credentials: 'include',
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify(data)
