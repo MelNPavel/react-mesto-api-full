@@ -54,7 +54,7 @@ app.use(requestLogger);
 app.use(cors(
   {
     origin: 'https://mestofullgha.nomorepartiesxyz.ru/',
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
     // allowedHeaders: 'access-control-request-headers',
     credentials: true,
   },
