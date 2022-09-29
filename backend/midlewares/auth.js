@@ -1,3 +1,4 @@
+const { NODE_ENV, JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const UnauthorizedError = require('../errors/UnauthorizedError');
@@ -6,14 +7,12 @@ const auth = (req, res, next) => {
   const token = req.cookies.jwt;
   let payload;
   try {
-    payload = jwt.verify(token, process.env['JWT.SECRET']);
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (e) {
     next(new UnauthorizedError('Отказ в доступе'));
   }
   req.user = payload;
   next();
 };
-
-// process.env['JWT.SECRET']
 
 module.exports = auth;

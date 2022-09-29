@@ -1,3 +1,4 @@
+const { NODE_ENV, JWT_SECRET } = process.env;
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -132,7 +133,7 @@ const login = async (req, res, next) => {
 
     const token = jwt.sign({
       _id: checkUser.id,
-    }, process.env['JWT.SECRET']);
+    }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
 
     res.cookie('jwt', token, {
       maxAge: 3600000,
