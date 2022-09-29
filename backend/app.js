@@ -62,6 +62,11 @@ app.use((req, res, next) => {
 //     "allowedHeaders": "access-control-request-headers",
 //   },
 // ));
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
